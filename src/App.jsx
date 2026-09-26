@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { WEATHER_API_BASE_URL, WEATHER_API_KEY } from './api'
+import logoUrl from '/weather-app.png'
 
 const getTheme = (conditionText) => {
   const lower = (conditionText || '').toLowerCase()
@@ -153,7 +154,26 @@ export default function App() {
           color: white;
           margin-bottom: 28px;
           letter-spacing: -0.5px;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          gap: 10px;
         }
+
+        .title-logo {
+          width: clamp(56px, 14vw, 80px);
+          height: clamp(56px, 14vw, 80px);
+          object-fit: contain;
+          filter: drop-shadow(0 4px 12px rgba(0,0,0,0.3));
+          animation: logoFloat 3s ease-in-out infinite;
+        }
+
+        @keyframes logoFloat {
+          0%, 100% { transform: translateY(0); }
+          50% { transform: translateY(-6px); }
+        }
+
+        .title-text { display: flex; flex-direction: column; align-items: center; gap: 4px; }
 
         .title span { opacity: 0.85; font-weight: 400; font-size: 0.9em; display: block; margin-top: 4px; font-size: clamp(0.85rem, 3vw, 1rem); }
 
@@ -344,8 +364,11 @@ export default function App() {
       <div className="app">
         <div className="wrapper">
           <h1 className="title">
-            Weather App
-            <span>Search any city in the world</span>
+            <img src={logoUrl} alt="Weather App Logo" className="title-logo" />
+            <span className="title-text">
+              Weather App
+              <span>Search any city in the world</span>
+            </span>
           </h1>
 
           <div className="search-box">

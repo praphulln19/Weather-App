@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="public/weather-app.png" alt="Weather App Logo" width="100" />
+</p>
+
 # 🌤️ Weather App
 
 A responsive weather dashboard built with React and Vite that provides current weather information for any city using the WeatherAPI service.
