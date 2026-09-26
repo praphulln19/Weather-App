@@ -1,6 +1,5 @@
 import { useState } from 'react'
 import { WEATHER_API_BASE_URL, WEATHER_API_KEY } from './api'
-import logoUrl from '/weather-app.png'
 
 const getTheme = (conditionText) => {
   const lower = (conditionText || '').toLowerCase()
@@ -364,7 +363,7 @@ export default function App() {
       <div className="app">
         <div className="wrapper">
           <h1 className="title">
-            <img src={logoUrl} alt="Weather App Logo" className="title-logo" />
+            <img src="/weather-app.png" alt="Weather App Logo" className="title-logo" />
             <span className="title-text">
               Weather App
               <span>Search any city in the world</span>
