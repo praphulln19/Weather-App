@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { WEATHER_API_BASE_URL, WEATHER_API_KEY } from './api'
+import { Droplets, Wind, Thermometer, Eye, Gauge, Cloud } from 'lucide-react'
 
 const getTheme = (conditionText) => {
   const lower = (conditionText || '').toLowerCase()
@@ -344,7 +345,8 @@ export default function App() {
           text-align: center;
         }
 
-        .detail-icon { font-size: 1.3rem; margin-bottom: 6px; }
+        .detail-icon { display: flex; align-items: center; justify-content: center; margin-bottom: 6px; }
+        .detail-icon svg { width: 22px; height: 22px; stroke: rgba(255,255,255,0.9); stroke-width: 1.8; }
         .detail-label { font-size: 0.72rem; opacity: 0.75; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 4px; }
         .detail-value { font-size: 1rem; font-weight: 600; }
 
@@ -417,32 +419,32 @@ export default function App() {
 
               <div className="details-grid">
                 <div className="detail-item">
-                  <div className="detail-icon">💧</div>
+                  <div className="detail-icon"><Droplets /></div>
                   <div className="detail-label">Humidity</div>
                   <div className="detail-value">{weather.main.humidity}%</div>
                 </div>
                 <div className="detail-item">
-                  <div className="detail-icon">🌬</div>
+                  <div className="detail-icon"><Wind /></div>
                   <div className="detail-label">Wind</div>
                   <div className="detail-value">{weather.wind.speed} kph</div>
                 </div>
                 <div className="detail-item">
-                  <div className="detail-icon">🌡</div>
+                  <div className="detail-icon"><Thermometer /></div>
                   <div className="detail-label">Feels like</div>
                   <div className="detail-value">{Math.round(weather.main.feels_like)}°C</div>
                 </div>
                 <div className="detail-item">
-                  <div className="detail-icon">👁</div>
+                  <div className="detail-icon"><Eye /></div>
                   <div className="detail-label">Visibility</div>
                   <div className="detail-value">{(weather.visibility / 1000).toFixed(1)} km</div>
                 </div>
                 <div className="detail-item">
-                  <div className="detail-icon">🔽</div>
+                  <div className="detail-icon"><Gauge /></div>
                   <div className="detail-label">Pressure</div>
                   <div className="detail-value">{weather.main.pressure} hPa</div>
                 </div>
                 <div className="detail-item">
-                  <div className="detail-icon">☁</div>
+                  <div className="detail-icon"><Cloud /></div>
                   <div className="detail-label">Clouds</div>
                   <div className="detail-value">{weather.clouds.all}%</div>
                 </div>
